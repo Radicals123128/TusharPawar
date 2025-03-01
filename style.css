@@ -616,7 +616,7 @@ section .title::after {
 .skills .skills-content {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
 }
 
@@ -625,36 +625,105 @@ section .title::after {
 }
 
 .skills .skills-content .left .text {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    color: crimson;
 }
 
-.skills .skills-content .left p {
-    text-align: justify;
+.skill-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
+.skill-category {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+}
+
+.skill-category h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skill-category h3 i {
+    color: crimson;
+}
+
+.skill-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.skill-item i {
+    font-size: 30px;
+    color: crimson;
+}
+
+.skill-item span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Right column with skill bars */
 .skills .skills-content .right .bars {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .skills .skills-content .right .info {
     display: flex;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     align-items: center;
     justify-content: space-between;
 }
 
 .skills .skills-content .right span {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
+    color: #333;
 }
 
 .skills .skills-content .right .line {
-    height: 5px;
+    height: 8px;
     width: 100%;
-    background: lightgrey;
+    background: #e0e0e0;
     position: relative;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .skills .skills-content .right .line::before {
@@ -664,6 +733,13 @@ section .title::after {
     left: 0;
     top: 0;
     background: crimson;
+    border-radius: 10px;
+    animation: fillBar 1.5s ease-in-out;
+}
+
+@keyframes fillBar {
+    from { width: 0; }
+    to { width: 100%; }
 }
 
 .skills .skills-content .right .html::before {
@@ -683,7 +759,57 @@ section .title::after {
 }
 
 .skills .skills-content .right .java::before {
-    width: 75%;
+    width: 85%;
+}
+
+/* Dark mode styles for skills section */
+body.dark-mode .skill-category {
+    background: #222;
+}
+
+body.dark-mode .skill-category h3 {
+    color: #fff;
+}
+
+body.dark-mode .skill-item {
+    background: #333;
+}
+
+body.dark-mode .skill-item span {
+    color: #fff;
+}
+
+body.dark-mode .skills .skills-content .right .bars {
+    background: #222;
+}
+
+body.dark-mode .skills .skills-content .right span {
+    color: #fff;
+}
+
+/* Responsive styles for skills section */
+@media (max-width: 947px) {
+    .skills .skills-content .column {
+        width: 100%;
+    }
+
+    .skill-items {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+    .skill-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skill-item i {
+        font-size: 24px;
+    }
+
+    .skill-item span {
+        font-size: 12px;
+    }
 }
 
 /* Experience Section Styling */
@@ -743,7 +869,31 @@ section .title::after {
 .experience .experience-content .card .text {
     font-size: 25px;
     font-weight: 500;
-    margin: 10px 0 7px 0;
+    margin: 10px 0 20px 0;
+}
+
+.experience .experience-content .card p {
+    margin: 10px 0;
+}
+
+.experience .experience-content .card p a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.experience .experience-content .card p a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.experience .experience-content .card:hover p a {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.1);
 }
 
 /* Education Section Styling */
