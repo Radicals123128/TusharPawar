@@ -20,6 +20,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <style>
+        .fa-flask-python {
+            content: url('your-flask-logo.svg');
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+
     <!-- Animation Libraries -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -52,9 +60,25 @@
             <div class="home-content">
                 <div class="text-1">Hello, my name is</div>
                 <div class="text-2">Tushar Pawar</div>
-                <div class="text-3">And I'm a <span>Frontend Developer</span></div>
+                <div class="text-3">And I'm a <span class="typing"></span></div>
                 <div class="text-4">Frontend Developer | Coder | Tech Enthusiast</div>
                 <a href="#contact">Hire me</a>
+
+                <script>
+                    var typed = new Typed(".typing", {
+                        strings: ["Frontend Developer", "Data Scientist", "Web Developer", "Python Developer", "Tech Enthusiast"],
+                        typeSpeed: 40,      // Extremely slow typing speed (400ms per character)
+                        backSpeed: 30,      // Very slow deletion speed (300ms per character)
+                        startDelay: 300,    // Wait 3 seconds before starting
+                        backDelay: 400,     // Wait 4 seconds before starting to delete
+                        loop: true,
+                        smartBackspace: true,
+                        shuffle: false,      // Keep the order of strings
+                        fadeOut: true,       // Use fade out transition
+                        fadeOutClass: 'typed-fade-out',
+                        fadeOutDelay: 1000   // Wait 1 second before fading out
+                    });
+                </script>
             </div>
         </div>
     </section>
@@ -92,8 +116,8 @@
                         <p>TP Cinema is a sleek and modern OTT (Over-the-Top) streaming platform that allows users to watch their favorite sports, movies, TV shows, and web series online. It features an engaging user interface with dynamic content carousels, a search bar, and a subscription model. The platform provides a seamless entertainment experience with categories like Latest & Trending, Popular in Premium, Popular Sports, Top Movies, Popular TV Shows, and Kids' Content.</p>
                         <p><b>Key Features:</b> Responsive UI, Dynamic Content Display, Search & Navigation System, Subscription & User Authentication, Multi-Category Listings</p>
                         <div class="links">
-                            <a href="#" target="_blank">Live Demo</a> |
-                            <a href="#" target="_blank">GitHub</a>
+                            <a href="https://radicals123128.github.io/OTT-Cinema/" target="_blank">Live Demo</a> |
+                            <a href="https://github.com/Radicals123128/OTT-Cinema" target="_blank">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -107,7 +131,8 @@
                         <div class="text">Radical Sport</div>
                         <p>Radical Sport is a dynamic water sports website that provides users with an immersive booking experience. It features a secure login system, detailed descriptions of various water sports, and a seamless booking process. The platform also offers additional services such as villa and car rentals, along with exclusive special offers to enhance user engagement.</p>
                         <div class="links">
-                            <a href="https://github.com/Radicals123128/Tushar-Bapusaheb-Pawar-" target="_blank">GitHub</a>
+                            <a href="https://radicals123128.github.io/Radical-Sport/" target="_blank">Live Demo</a> |
+                            <a href="https://github.com/Radicals123128/Radical-Sport" target="_blank">GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -127,6 +152,7 @@
                         <div class="text">Movie Recommendation System</div>
                         <p>AI-powered system to suggest movies based on user preferences using machine learning algorithms.</p>
                         <div class="links">
+                            <a href="https://movie-recommendation-system-avg9.onrender.com" target="_blank">Live Demo</a> |
                             <a href="https://github.com/Radicals123128/Data-Science-Practice.git" target="_blank">GitHub</a>
                         </div>
                     </div>
@@ -170,8 +196,12 @@
                                     <span>JavaScript</span>
                                 </div>
                                 <div class="skill-item">
-                                    <i class="fab fa-jquery"></i>
+                                    <img src="https://images.squarespace-cdn.com/content/v1/5d092c5193b409000129adc4/1561156687619-4HL4TCIN7ZFNF2DZCSOZ/jquery+logo.png?format=500w" alt="jQuery Logo" width="40px">
                                     <span>jQuery</span>
+                                </div>
+                                <div class="skill-item">
+                                    <img src="https://flask.palletsprojects.com/en/stable/_static/flask-vertical.png" alt="Flask Logo" width="40px">
+                                    <span>Flask</span>
                                 </div>
                             </div>
                         </div>
@@ -197,7 +227,7 @@
                                     <span>C++</span>
                                 </div>
                                 <div class="skill-item">
-                                    <i class="fas fa-calculator"></i>
+                                    <i class="fab fa-r-project"></i>
                                     <span>R</span>
                                 </div>
                             </div>
@@ -214,10 +244,6 @@
                                 <div class="skill-item">
                                     <i class="fas fa-chart-line"></i>
                                     <span>Data Analysis</span>
-                                </div>
-                                <div class="skill-item">
-                                    <i class="fas fa-flask"></i>
-                                    <span>Flask</span>
                                 </div>
                             </div>
                         </div>
