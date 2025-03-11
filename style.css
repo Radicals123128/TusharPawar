@@ -521,96 +521,6 @@ section .title::after {
     background: none;
 }
 
-/* Projects Section Styling */
-.projects {
-    color: #fff;
-    background: #111;
-}
-
-.projects .title::before {
-    background: #fff;
-}
-
-.projects .title::after {
-    background: #111;
-    content: "what i created";
-}
-
-.projects .project-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.projects .project-content .card {
-    width: calc(33% - 20px);
-    background: #222;
-    text-align: center;
-    border-radius: 6px;
-    padding: 50px 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.projects .project-content .card:hover {
-    background: crimson;
-}
-
-.projects .project-content .card .box {
-    transition: all 0.3s ease;
-}
-
-.projects .project-content .card:hover .box {
-    transform: scale(1.05);
-}
-
-.projects .project-content .card i {
-    font-size: 50px;
-    color: crimson;
-    transition: color 0.3s ease;
-}
-
-.projects .project-content .card .icon-group {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 15px;
-}
-
-.projects .project-content .card .icon-group i {
-    font-size: 30px;
-}
-
-.projects .project-content .card:hover i {
-    color: #fff;
-}
-
-.projects .project-content .card .text {
-    font-size: 25px;
-    font-weight: 500;
-    margin: 10px 0 7px 0;
-}
-
-.projects .project-content .card .links {
-    margin-top: 20px;
-}
-
-.projects .project-content .card .links a {
-    display: inline-block;
-    color: #fff;
-    font-size: 18px;
-    padding: 8px 16px;
-    margin: 0 5px;
-    border-radius: 6px;
-    border: 2px solid #fff;
-    transition: all 0.3s ease;
-}
-
-.projects .project-content .card:hover .links a {
-    color: crimson;
-    background: #fff;
-}
 
 /* Skills Section Styling */
 .skills .skills-content {
@@ -812,89 +722,6 @@ body.dark-mode .skills .skills-content .right span {
     }
 }
 
-/* Experience Section Styling */
-.experience {
-    color: #fff;
-    background: #111;
-}
-
-.experience .title::before {
-    background: #fff;
-}
-
-.experience .title::after {
-    background: #111;
-    content: "what i've done";
-}
-
-.experience .experience-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.experience .experience-content .card {
-    width: calc(50% - 20px);
-    background: #222;
-    text-align: center;
-    border-radius: 6px;
-    padding: 50px 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.experience .experience-content .card:hover {
-    background: crimson;
-}
-
-.experience .experience-content .card .box {
-    transition: all 0.3s ease;
-}
-
-.experience .experience-content .card:hover .box {
-    transform: scale(1.05);
-}
-
-.experience .experience-content .card i {
-    font-size: 50px;
-    color: crimson;
-    transition: color 0.3s ease;
-}
-
-.experience .experience-content .card:hover i {
-    color: #fff;
-}
-
-.experience .experience-content .card .text {
-    font-size: 25px;
-    font-weight: 500;
-    margin: 10px 0 20px 0;
-}
-
-.experience .experience-content .card p {
-    margin: 10px 0;
-}
-
-.experience .experience-content .card p a {
-    color: #fff;
-    text-decoration: none;
-    display: block;
-    padding: 10px;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
-
-.experience .experience-content .card p a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateX(5px);
-}
-
-.experience .experience-content .card:hover p a {
-    color: #fff;
-    background: rgba(0, 0, 0, 0.1);
-}
 
 /* Education Section Styling */
 .education .education-content {
@@ -929,6 +756,7 @@ body.dark-mode .skills .skills-content .right span {
     font-weight: 500;
     margin: 10px 0 7px 0;
 }
+
 
 /* Contact Section Styling */
 .contact .contact-content {
