@@ -1,0 +1,514 @@
+/* Enhanced Project Section Styles */
+
+/* Ensure project section matches website theme */
+.projects {
+    color: #fff;
+    background: #111;
+}
+
+.projects .title::before {
+    background: #fff;
+}
+
+.projects .title::after {
+    background: #111;
+    content: "what i created";
+}
+
+/* Improved project section layout */
+.projects .project-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Smooth transitions for project cards */
+.projects .card {
+    transition: transform 0.5s ease, opacity 0.5s ease, background 0.3s ease;
+    opacity: 1;
+    transform: scale(1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: #222;
+}
+
+.projects .card:hover {
+    background: crimson;
+}
+
+/* Project filter buttons */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    background: transparent;
+    border: 2px solid crimson;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: crimson;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Project image container */
+.project-img {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 12px 12px 0 0;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.card:hover .project-img img {
+    transform: scale(1.1);
+}
+
+/* Project image overlay */
+.project-img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .project-img::after {
+    opacity: 0.7;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(crimson,0.5));
+}
+
+/* Project content box */
+.projects .card .box {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+}
+
+/* Project title styling */
+.projects .card .text {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.projects .card .text::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: crimson;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.projects .card:hover .text::after {
+    width: 100px;
+    background: #fff;
+}
+
+/* Project description */
+.projects .card p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* Tech stack badges */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.tech-badge {
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(220, 20, 60, 0.3); /* crimson with opacity */
+}
+
+.card:hover .tech-badge {
+    background: rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Featured project badge */
+.featured-badge {
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: crimson;
+    color: white;
+    padding: 8px 35px;
+    transform: rotate(45deg);
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 2;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Project links */
+.projects .links {
+    margin-top: auto;
+    display: flex;
+    gap: 15px;
+}
+
+.projects .links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: transparent;
+    flex: 1;
+}
+
+.projects .card:hover .links a {
+    color: crimson;
+    background: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Add icons to links */
+.links a i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+/* Icon group styling */
+.projects .icon-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    justify-content: flex-start;
+}
+
+.projects .icon-group i,
+.projects .box > i {
+    font-size: 22px;
+    color: crimson;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.projects .card:hover .icon-group i,
+.projects .card:hover .box > i {
+    transform: scale(1.1) rotate(10deg);
+    color: #fff;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Certificate Slideshow Section */
+.certificate-section {
+    padding: 80px 0;
+    background: #111;
+    color: #fff;
+    position: relative;
+}
+
+.certificate-section .title::before {
+    background: #fff;
+}
+
+.certificate-section .title::after {
+    background: #111;
+    content: "my achievements";
+}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 900px;
+    position: relative;
+    margin: 50px auto;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #222;
+}
+
+/* Hide slides by default */
+.slide {
+    display: none;
+    position: relative;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    height: 500px;
+}
+
+/* Active slide */
+.slide.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Slide image */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #222;
+}
+
+/* Caption text */
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.slide:hover .slide-caption {
+    background: rgba(220, 20, 60, 0.8); /* crimson with opacity */
+    transform: translateY(-5px);
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -30px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    border-radius: 0 5px 5px 0;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    z-index: 10;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(220, 20, 60, 0.8);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* The dots/bullets/indicators */
+.dots-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    border: 2px solid transparent;
+}
+
+.active-dot, .dot:hover {
+    background-color: crimson;
+    transform: scale(1.2);
+    border-color: white;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* Pause on hover */
+.slideshow-container:hover .auto-slide {
+    animation-play-state: paused;
+}
+
+/* Auto slide animation */
+.auto-slide {
+    animation: slide-change 5s infinite;
+    animation-play-state: running;
+}
+
+@keyframes slide-change {
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    80% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+/* Certificate section responsive adjustments */
+@media (max-width: 768px) {
+    .slideshow-container {
+        max-width: 90%;
+    }
+
+    .slide {
+        height: 400px;
+    }
+
+    .prev, .next {
+        padding: 12px;
+        font-size: 20px;
+    }
+
+    .slide-caption {
+        padding: 15px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide {
+        height: 300px;
+    }
+
+    .prev, .next {
+        padding: 8px;
+        font-size: 18px;
+    }
+
+    .dot {
+        height: 12px;
+        width: 12px;
+        margin: 0 3px;
+    }
+
+    .slide-caption {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .projects .project-content {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .projects .project-content {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .filter-buttons {
+        overflow-x: auto;
+        padding-bottom: 15px;
+        justify-content: flex-start;
+        margin-bottom: 30px;
+    }
+
+    .filter-btn {
+        flex: 0 0 auto;
+        font-size: 0.9rem;
+        padding: 8px 18px;
+        white-space: nowrap;
+    }
+
+    .project-img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects .project-content {
+        grid-template-columns: 1fr;
+    }
+
+    .links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .links a {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .projects .card .text {
+        font-size: 20px;
+    }
+
+    .projects .card p {
+        font-size: 14px;
+    }
+}
