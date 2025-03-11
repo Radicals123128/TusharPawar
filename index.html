@@ -18,6 +18,9 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="enhanced-projects.css">
+    <link rel="stylesheet" href="enhanced-experience.css">
+    <link rel="stylesheet" href="certificate-timeline.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -103,9 +106,23 @@
     <!-- Projects Section -->
     <section class="projects" id="projects">
         <div class="max-width">
-            <h2 class="title">My Projects</h2>
+            <h2 class="title" data-aos="fade-up">My Projects</h2>
+
+            <!-- Project Filter Buttons -->
+            <div class="filter-buttons" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="data">Data Science</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+            </div>
+
             <div class="project-content">
-                <div class="card">
+                <!-- TP Cinema Project -->
+                <div class="card" data-aos="fade-up" data-aos-delay="100" data-project-type="web">
+                    <div class="featured-badge">Featured</div>
+                    <div class="project-img">
+                        <img src="TP cinema.png" alt="TP Cinema Project Screenshot">
+                    </div>
                     <div class="box">
                         <div class="icon-group">
                             <i class="fas fa-tv"></i>
@@ -113,15 +130,29 @@
                             <i class="fas fa-futbol"></i>
                         </div>
                         <div class="text">TP Cinema</div>
-                        <p>TP Cinema is a sleek and modern OTT (Over-the-Top) streaming platform that allows users to watch their favorite sports, movies, TV shows, and web series online. It features an engaging user interface with dynamic content carousels, a search bar, and a subscription model. The platform provides a seamless entertainment experience with categories like Latest & Trending, Popular in Premium, Popular Sports, Top Movies, Popular TV Shows, and Kids' Content.</p>
+                        <p>A sleek and modern OTT streaming platform for sports, movies, TV shows, and web series with dynamic content carousels, search functionality, and subscription model.</p>
+
+                        <div class="tech-stack">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">Responsive Design</span>
+                        </div>
+
                         <p><b>Key Features:</b> Responsive UI, Dynamic Content Display, Search & Navigation System, Subscription & User Authentication, Multi-Category Listings</p>
+
                         <div class="links">
-                            <a href="https://radicals123128.github.io/OTT-Cinema/" target="_blank">Live Demo</a> |
-                            <a href="https://github.com/Radicals123128/OTT-Cinema" target="_blank">GitHub</a>
+                            <a href="https://radicals123128.github.io/OTT-Cinema/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/Radicals123128/OTT-Cinema" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
-                <div class="card">
+
+                <!-- Radical Sport Project -->
+                <div class="card" data-aos="fade-up" data-aos-delay="200" data-project-type="web">
+                    <div class="project-img">
+                        <img src="Radical Sports.png" alt="Radical Sport Project Screenshot">
+                    </div>
                     <div class="box">
                         <div class="icon-group">
                             <i class="fas fa-water"></i>
@@ -129,41 +160,100 @@
                             <i class="fas fa-car"></i>
                         </div>
                         <div class="text">Radical Sport</div>
-                        <p>Radical Sport is a dynamic water sports website that provides users with an immersive booking experience. It features a secure login system, detailed descriptions of various water sports, and a seamless booking process. The platform also offers additional services such as villa and car rentals, along with exclusive special offers to enhance user engagement.</p>
+                        <p>A dynamic water sports booking platform with secure login, detailed activity descriptions, and seamless booking process. Also offers villa and car rentals with special offers.</p>
+
+                        <div class="tech-stack">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">jQuery</span>
+                        </div>
+
                         <div class="links">
-                            <a href="https://radicals123128.github.io/Radical-Sport/" target="_blank">Live Demo</a> |
-                            <a href="https://github.com/Radicals123128/Radical-Sport" target="_blank">GitHub</a>
+                            <a href="https://radicals123128.github.io/Radical-Sport/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/Radicals123128/Radical-Sport" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
-                <div class="card">
+
+                <!-- Movie Recommendation System Analysis -->
+                <div class="card" data-aos="fade-up" data-aos-delay="300" data-project-type="data">
+                    <div class="project-img">
+                        <img src="https://i.ibb.co/Qf6Hh16/movie-analysis.jpg" alt="Movie Analysis Project Screenshot" onerror="this.src='https://via.placeholder.com/350x200?text=Netflix+Data+Analysis'">
+                    </div>
                     <div class="box">
-                        <i class="fas fa-database"></i>
-                        <div class="text">Movie-Recommendation-System</div>
-                        <p>Explored trends, genres, and ratings using data visualization techniques. In-depth analysis of Netflix's movie database.</p>
+                        <div class="icon-group">
+                            <i class="fas fa-database"></i>
+                            <i class="fas fa-chart-bar"></i>
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <div class="text">Netflix Data Analysis</div>
+                        <p>Comprehensive analysis of Netflix's movie database exploring trends, genres, and ratings using advanced data visualization techniques and statistical analysis.</p>
+
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">Matplotlib</span>
+                            <span class="tech-badge">Data Analysis</span>
+                        </div>
+
                         <div class="links">
-                            <a href="https://github.com/Radicals123128/Movie-Recommendation-System-" target="_blank">GitHub</a>
+                            <a href="https://github.com/Radicals123128/Movie-Recommendation-System-" target="_blank"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
                 </div>
-                <div class="card">
+
+                <!-- Movie Recommendation System -->
+                <div class="card" data-aos="fade-up" data-aos-delay="400" data-project-type="ml">
+                    <div class="project-img">
+                        <img src="Movie recommendation System.png" alt="Movie Recommendation System Screenshot">
+                    </div>
                     <div class="box">
-                        <i class="fas fa-film"></i>
+                        <div class="icon-group">
+                            <i class="fas fa-film"></i>
+                            <i class="fas fa-brain"></i>
+                            <i class="fas fa-robot"></i>
+                        </div>
                         <div class="text">Movie Recommendation System</div>
-                        <p>AI-powered system to suggest movies based on user preferences using machine learning algorithms.</p>
-                        <div class="links">
-                            <a href="https://movie-recommendation-system-avg9.onrender.com" target="_blank">Live Demo</a> |
-                            <a href="https://github.com/Radicals123128/Data-Science-Practice.git" target="_blank">GitHub</a>
+                        <p>AI-powered system that suggests movies based on user preferences using collaborative filtering and content-based machine learning algorithms.</p>
+
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Flask</span>
+                            <span class="tech-badge">Scikit-learn</span>
+                            <span class="tech-badge">Machine Learning</span>
                         </div>
-                    </div>
+
+                        <div class="links">
+                            <a href="https://movie-recommendation-system-avg9.onrender.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/Radicals123128/Data-Science-Practice.git" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                        </div>
                 </div>
-                <div class="card">
+
+                <!-- Fake News Detection -->
+                <div class="card" data-aos="fade-up" data-aos-delay="500" data-project-type="ml">
+                    <div class="project-img">
+                        <img src="Fake news Detection System.png" alt="Fake News Detection Screenshot">
+                    </div>
                     <div class="box">
-                        <i class="fas fa-newspaper"></i>
+                        <div class="icon-group">
+                            <i class="fas fa-newspaper"></i>
+                            <i class="fas fa-check-circle"></i>
+                            <i class="fas fa-search"></i>
+                        </div>
                         <div class="text">Fake News Detection</div>
                         <p>Machine learning-based system for detecting and classifying fake news articles using natural language processing and advanced classification algorithms.</p>
+
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">NLP</span>
+                            <span class="tech-badge">TensorFlow</span>
+                            <span class="tech-badge">Flask</span>
+                        </div>
+
                         <div class="links">
-                            <a href="https://web-production-728ae.up.railway.app/" target="_blank">Live Demo</a>
+                            <a href="https://web-production-728ae.up.railway.app/" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                         </div>
                     </div>
                 </div>
@@ -318,34 +408,257 @@
     <section class="experience" id="experience">
         <div class="max-width">
             <h2 class="title">Experience & Certifications</h2>
-            <div class="experience-content">
-                <div class="card">
-                    <div class="box">
-                        <i class="fas fa-briefcase"></i>
-                        <div class="text">Work Experience</div>
-                        <p>Add your work experience details here.</p>
+
+
+
+            <!-- Certificate Timeline -->
+            <h3 class="subtitle" data-aos="fade-up">My Certifications</h3>
+            <div class="certificate-timeline" data-aos="fade-up" data-aos-delay="200">
+                <!-- Certificate 1 -->
+                <div class="certificate-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="certificate-date">
+                        <span>27 January 2025</span>
+                    </div>
+                    <div class="certificate-content">
+                        <div class="shine-effect"></div>
+                        <div class="certificate-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="certificate-details">
+                            <h4>Python for Data Science</h4>
+                            <div class="certificate-issuer">
+                                <i class="fas fa-certificate"></i> Udemy
+                            </div>
+                            <p>Comprehensive course covering Python fundamentals, data manipulation, visualization, and machine learning basics for data science applications.</p>
+                            <div class="certificate-skills">
+                                <span>Python</span>
+                                <span>Pandas</span>
+                                <span>NumPy</span>
+                                <span>Data Visualization</span>
+                            </div>
+                            <div class="certificate-actions">
+                                <a href="https://www.udemy.com/certificate/UC-83c735ac-826c-4abb-b982-64bad360e2c0/" target="_blank" class="view-certificate">
+                                    <i class="fas fa-external-link-alt"></i> View Certificate
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="box">
-                        <i class="fas fa-certificate"></i>
-                        <div class="text">Course Certifications</div>
-                        <p><a href="https://www.udemy.com/certificate/UC-83c735ac-826c-4abb-b982-64bad360e2c0/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com" target="_blank">Python for Data Science</a></p>
-                        <p><a href="https://media.licdn.com/dms/image/v2/D4D2DAQHIxsCt1lx5sQ/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1731078046812?e=1739822400&v=beta&t=ike-tR6cesLwLglqGvXngd-GbJFOKH095Z8QgipjgOc" target="_blank">Web Development - YouAccel</a></p>
-                        <p><a href="https://udemy-certificate.s3.amazonaws.com/image/UC-a4032352-f87f-4f66-919d-8d8e30e8bf18.jpg" target="_blank">Flask Master Class For Beginners To Pro</a></p>
+
+                <!-- Certificate 2 -->
+                <div class="certificate-item" data-aos="fade-left" data-aos-delay="150">
+                    <div class="certificate-date">
+                        <span>April 2023</span>
+                    </div>
+                    <div class="certificate-content">
+                        <div class="shine-effect"></div>
+                        <div class="certificate-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="certificate-details">
+                            <h4>Web Development - YouAccel</h4>
+                            <div class="certificate-issuer">
+                                <i class="fas fa-certificate"></i> LinkedIn Learning
+                            </div>
+                            <p>Comprehensive web development course covering HTML, CSS, JavaScript, and responsive design principles for modern web applications.</p>
+                            <div class="certificate-skills">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                                <span>Responsive Design</span>
+                            </div>
+                            <div class="certificate-actions">
+                                <a href="https://media.licdn.com/dms/image/v2/D4D2DAQHIxsCt1lx5sQ/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1731078046812?e=1739822400&v=beta&t=ike-tR6cesLwLglqGvXngd-GbJFOKH095Z8QgipjgOc" target="_blank" class="view-certificate">
+                                    <i class="fas fa-external-link-alt"></i> View Certificate
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="box">
-                        <i class="fas fa-certificate"></i>
-                        <div class="text">HackerRank & Kaggle Certifications</div>
-                        <ul style="list-style: none; padding: 0;">
-                            <li><a href="https://www.hackerrank.com/certificates/iframe/c4feb464ba8d" target="_blank">Java (Basic)</a></li>
-                            <li><a href="https://www.hackerrank.com/certificates/e6e532d6df90" target="_blank">Python (Basic)</a></li>
-                            <li><a href="https://www.kaggle.com/certification/badges/tusharpawarfy23p128/30" target="_blank">Kaggle Python Coder</a></li>
-                            <li><a href="https://www.kaggle.com/certification/badges/tusharpawarfy23p128/17" target="_blank">Kaggle Dataset Creator</Data></a></li>
-                            <li><a href="https://www.kaggle.com/certification/badges/tusharpawarfy23p128/44" target="_blank">Kaggle Vampire</a></li>
-                        </ul>
+
+                <!-- Certificate 3 -->
+                <div class="certificate-item" data-aos="fade-right" data-aos-delay="200">
+                    <div class="certificate-date">
+                        <span>1 March 2025</span>
+                    </div>
+                    <div class="certificate-content">
+                        <div class="shine-effect"></div>
+                        <div class="certificate-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="certificate-details">
+                            <h4>Flask Master Class For Beginners To Pro</h4>
+                            <div class="certificate-issuer">
+                                <i class="fas fa-certificate"></i> Udemy
+                            </div>
+                            <p>Comprehensive Flask framework course covering web application development, database integration, authentication, and deployment.</p>
+                            <div class="certificate-skills">
+                                <span>Flask</span>
+                                <span>Python</span>
+                                <span>Web Development</span>
+                                <span>API Development</span>
+                            </div>
+                            <div class="certificate-actions">
+                                <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-a4032352-f87f-4f66-919d-8d8e30e8bf18.jpg" target="_blank" class="view-certificate">
+                                    <i class="fas fa-external-link-alt"></i> View Certificate
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 4 -->
+                <div class="certificate-item" data-aos="fade-left" data-aos-delay="250">
+                    <div class="certificate-date">
+                        <span>15 October 2024</span>
+                    </div>
+                    <div class="certificate-content">
+                        <div class="shine-effect"></div>
+                        <div class="certificate-icon">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <div class="certificate-details">
+                            <h4>Java (Basic)</h4>
+                            <div class="certificate-issuer">
+                                <i class="fas fa-certificate"></i> HackerRank
+                            </div>
+                            <p>Certification validating fundamental Java programming skills, including syntax, data structures, object-oriented programming, and problem-solving.</p>
+                            <div class="certificate-skills">
+                                <span>Java</span>
+                                <span>OOP</span>
+                                <span>Data Structures</span>
+                                <span>Algorithms</span>
+                            </div>
+                            <div class="certificate-actions">
+                                <a href="https://www.hackerrank.com/certificates/iframe/c4feb464ba8d" target="_blank" class="view-certificate">
+                                    <i class="fas fa-external-link-alt"></i> View Certificate
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 5 -->
+                <div class="certificate-item" data-aos="fade-right" data-aos-delay="300">
+                    <div class="certificate-date">
+                        <span>10 Feb 2025</span>
+                    </div>
+                    <div class="certificate-content">
+                        <div class="shine-effect"></div>
+                        <div class="certificate-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="certificate-details">
+                            <h4>Python (Basic)</h4>
+                            <div class="certificate-issuer">
+                                <i class="fas fa-certificate"></i> HackerRank
+                            </div>
+                            <p>Certification validating fundamental Python programming skills, including syntax, data structures, and problem-solving techniques.</p>
+                            <div class="certificate-skills">
+                                <span>Python</span>
+                                <span>Data Structures</span>
+                                <span>Algorithms</span>
+                                <span>Problem Solving</span>
+                            </div>
+                            <div class="certificate-actions">
+                                <a href="https://www.hackerrank.com/certificates/e6e532d6df90" target="_blank" class="view-certificate">
+                                    <i class="fas fa-external-link-alt"></i> View Certificate
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 6 -->
+                <div class="certificate-item" data-aos="fade-left" data-aos-delay="350">
+                    <div class="certificate-date">
+                        <span>2025</span>
+                    </div>
+                    <div class="certificate-content">
+                        <div class="shine-effect"></div>
+                        <div class="certificate-icon">
+                            <i class="fab fa-kaggle"></i>
+                        </div>
+                        <div class="certificate-details">
+                            <h4>Kaggle Python Coder</h4>
+                            <div class="certificate-issuer">
+                                <i class="fas fa-certificate"></i> Kaggle
+                            </div>
+                            <p>Recognition for Python programming proficiency in data science applications, including data manipulation, analysis, and machine learning implementations.</p>
+                            <div class="certificate-skills">
+                                <span>Python</span>
+                                <span>Data Science</span>
+                                <span>Machine Learning</span>
+                                <span>Data Analysis</span>
+                            </div>
+                            <div class="certificate-actions">
+                                <a href="https://www.kaggle.com/certification/badges/tusharpawarfy23p128/30" target="_blank" class="view-certificate">
+                                    <i class="fas fa-external-link-alt"></i> View Certificate
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 7 -->
+                <div class="certificate-item" data-aos="fade-right" data-aos-delay="400">
+                    <div class="certificate-date">
+                        <span>2025</span>
+                    </div>
+                    <div class="certificate-content">
+                        <div class="shine-effect"></div>
+                        <div class="certificate-icon">
+                            <i class="fab fa-kaggle"></i>
+                        </div>
+                        <div class="certificate-details">
+                            <h4>Kaggle Dataset Creator</h4>
+                            <div class="certificate-issuer">
+                                <i class="fas fa-certificate"></i> Kaggle
+                            </div>
+                            <p>Recognition for creating and publishing high-quality datasets on Kaggle, demonstrating data curation, cleaning, and documentation skills.</p>
+                            <div class="certificate-skills">
+                                <span>Data Curation</span>
+                                <span>Data Cleaning</span>
+                                <span>Documentation</span>
+                                <span>Data Management</span>
+                            </div>
+                            <div class="certificate-actions">
+                                <a href="https://www.kaggle.com/certification/badges/tusharpawarfy23p128/17" target="_blank" class="view-certificate">
+                                    <i class="fas fa-external-link-alt"></i> View Certificate
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 8 -->
+                <div class="certificate-item" data-aos="fade-left" data-aos-delay="450">
+                    <div class="certificate-date">
+                        <span>2025</span>
+                    </div>
+                    <div class="certificate-content">
+                        <div class="shine-effect"></div>
+                        <div class="certificate-icon">
+                            <i class="fab fa-kaggle"></i>
+                        </div>
+                        <div class="certificate-details">
+                            <h4>Kaggle Vampire</h4>
+                            <div class="certificate-issuer">
+                                <i class="fas fa-certificate"></i> Kaggle
+                            </div>
+                            <p>Recognition for active participation and contribution to the Kaggle community, demonstrating commitment to data science and machine learning.</p>
+                            <div class="certificate-skills">
+                                <span>Community Contribution</span>
+                                <span>Data Science</span>
+                                <span>Knowledge Sharing</span>
+                                <span>Collaboration</span>
+                            </div>
+                            <div class="certificate-actions">
+                                <a href="https://www.kaggle.com/certification/badges/tusharpawarfy23p128/44" target="_blank" class="view-certificate">
+                                    <i class="fas fa-external-link-alt"></i> View Certificate
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -470,8 +783,10 @@
     <script>
         AOS.init({
             duration: 1000,
-            once: true,
-            offset: 100
+            once: false,
+            offset: 100,
+            easing: 'ease-in-out',
+            mirror: true
         });
     </script>
 
@@ -501,5 +816,81 @@
 
     <!-- Main Script -->
     <script src="script.js"></script>
+
+    <!-- Project Filtering Script -->
+    <script>
+        // Project filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS animations for projects
+            AOS.refresh();
+
+            // Get all filter buttons and project cards
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.projects .card');
+
+            // Add click event to filter buttons
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        const projectType = card.getAttribute('data-project-type');
+
+                        // Show/hide cards based on filter
+                        if (filterValue === 'all' || filterValue === projectType) {
+                            card.style.display = '';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 100);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+
+                    // Refresh AOS animations after filtering
+                    setTimeout(() => {
+                        AOS.refresh();
+                    }, 500);
+                });
+            });
+
+            // Add hover effects to project cards
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.querySelectorAll('.tech-badge').forEach((badge, index) => {
+                        badge.style.transitionDelay = (index * 0.05) + 's';
+                    });
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.querySelectorAll('.tech-badge').forEach(badge => {
+                        badge.style.transitionDelay = '0s';
+                    });
+                });
+            });
+
+            // Initialize project images with placeholders if they fail to load
+            const projectImages = document.querySelectorAll('.project-img img');
+            projectImages.forEach(img => {
+                img.addEventListener('error', function() {
+                    // Replace with a placeholder image if the original fails to load
+                    this.src = 'https://via.placeholder.com/350x200?text=Project+Screenshot';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
