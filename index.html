@@ -29,6 +29,61 @@
             width: 24px;
             height: 24px;
         }
+
+        /* Particles.js container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .home .max-width {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Glowing button effect */
+        .glow-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .glow-button:hover {
+            box-shadow: 0 0 20px rgba(0, 128, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .glow-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .glow-button:hover::before {
+            animation: glow 1.5s infinite;
+            opacity: 1;
+        }
+
+        @keyframes glow {
+            0% {
+                left: -50%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
     </style>
 
     <!-- Animation Libraries -->
@@ -39,6 +94,7 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -59,32 +115,246 @@
 
     <!-- Home Section -->
     <section class="home" id="home">
+        <div id="particles-js"></div>
         <div class="max-width">
             <div class="home-content">
                 <div class="text-1">Hello, my name is</div>
                 <div class="text-2">Tushar Pawar</div>
                 <div class="text-3">And I'm a <span class="typing"></span></div>
                 <div class="text-4">Frontend Developer | Coder | Tech Enthusiast</div>
-                <a href="#contact">Hire me</a>
+                <a href="#contact" class="glow-button">Hire me</a>
 
                 <script>
                     var typed = new Typed(".typing", {
                         strings: ["Frontend Developer", "Data Scientist", "Web Developer", "Python Developer", "Tech Enthusiast"],
-                        typeSpeed: 40,      // Extremely slow typing speed (400ms per character)
-                        backSpeed: 30,      // Very slow deletion speed (300ms per character)
-                        startDelay: 300,    // Wait 3 seconds before starting
-                        backDelay: 400,     // Wait 4 seconds before starting to delete
+                        typeSpeed: 40,      // Typing speed
+                        backSpeed: 30,      // Deletion speed
+                        startDelay: 300,    // Wait before starting
+                        backDelay: 400,     // Wait before starting to delete
                         loop: true,
                         smartBackspace: true,
                         shuffle: false,      // Keep the order of strings
                         fadeOut: true,       // Use fade out transition
                         fadeOutClass: 'typed-fade-out',
-                        fadeOutDelay: 1000   // Wait 1 second before fading out
+                        fadeOutDelay: 1000   // Wait before fading out
                     });
                 </script>
             </div>
         </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="scroll-down-container">
+            <div class="scroll-down-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="scroll-text">Scroll Down</div>
+        </div>
     </section>
+
+    <style>
+        /* Scroll Down Indicator */
+        .scroll-down-container {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .scroll-down-indicator {
+            width: 30px;
+            height: 50px;
+            border: 2px solid #fff;
+            border-radius: 50px;
+            position: relative;
+            opacity: 0.8;
+        }
+
+        .scroll-down-indicator span {
+            position: absolute;
+            left: 50%;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            margin-left: -3px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: scrollDown 2s infinite;
+        }
+
+        .scroll-down-indicator span:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .scroll-down-indicator span:nth-child(3) {
+            animation-delay: 0.8s;
+        }
+
+        .scroll-text {
+            color: #fff;
+            font-size: 14px;
+            margin-top: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            animation: fadeInOut 2s infinite;
+        }
+
+        @keyframes scrollDown {
+            0% {
+                opacity: 0;
+                transform: translateY(0);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <script>
+        // Smooth scroll when clicking the scroll down indicator
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollIndicator = document.querySelector('.scroll-down-container');
+            if (scrollIndicator) {
+                scrollIndicator.addEventListener('click', function() {
+                    const aboutSection = document.getElementById('about');
+                    if (aboutSection) {
+                        aboutSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script>
+        // Initialize particles.js
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 6,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 400,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        });
+    </script>
 
     <!-- About Section -->
     <section class="about" id="about">
@@ -363,43 +633,147 @@
                 </div>
 
                 <!-- Skill Bars -->
-                <div class="column right">
-                    <div class="bars">
-                        <div class="info">
-                            <span>Web Development</span>
-                            <span>90%</span>
+                <div class="column right" data-aos="fade-left">
+                    <div class="skill-meter">
+                        <h3>Web Development</h3>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" data-progress="90">
+                                <span class="skill-percent">90%</span>
+                            </div>
                         </div>
-                        <div class="line html"></div>
                     </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>Programming</span>
-                            <span>85%</span>
+
+                    <div class="skill-meter">
+                        <h3>Programming</h3>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" data-progress="85">
+                                <span class="skill-percent">85%</span>
+                            </div>
                         </div>
-                        <div class="line css"></div>
                     </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>Data Science</span>
-                            <span>80%</span>
+
+                    <div class="skill-meter">
+                        <h3>Data Science</h3>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" data-progress="80">
+                                <span class="skill-percent">80%</span>
+                            </div>
                         </div>
-                        <div class="line js"></div>
                     </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>Database</span>
-                            <span>85%</span>
+
+                    <div class="skill-meter">
+                        <h3>Database</h3>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" data-progress="85">
+                                <span class="skill-percent">85%</span>
+                            </div>
                         </div>
-                        <div class="line python"></div>
                     </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>Problem Solving</span>
-                            <span>85%</span>
+
+                    <div class="skill-meter">
+                        <h3>Problem Solving</h3>
+                        <div class="skill-progress">
+                            <div class="skill-progress-bar" data-progress="85">
+                                <span class="skill-percent">85%</span>
+                            </div>
                         </div>
-                        <div class="line java"></div>
                     </div>
                 </div>
+
+                <style>
+                    /* Modern Skill Bars */
+                    .skill-meter {
+                        margin-bottom: 25px;
+                    }
+
+                    .skill-meter h3 {
+                        margin-bottom: 10px;
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
+
+                    .skill-progress {
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 10px;
+                        height: 10px;
+                        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                        position: relative;
+                        overflow: hidden;
+                    }
+
+                    .skill-progress-bar {
+                        position: absolute;
+                        height: 100%;
+                        width: 0;
+                        border-radius: 10px;
+                        background: linear-gradient(90deg, #4776E6, #8E54E9);
+                        transition: width 1.5s cubic-bezier(0.1, 0.45, 0.1, 1);
+                        box-shadow: 0 0 10px rgba(142, 84, 233, 0.5);
+                    }
+
+                    .skill-percent {
+                        position: absolute;
+                        right: 10px;
+                        top: -25px;
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: #8E54E9;
+                    }
+
+                    /* Animation for skill bars */
+                    .skill-progress-bar::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(90deg,
+                            transparent,
+                            rgba(255, 255, 255, 0.2),
+                            transparent);
+                        animation: shimmer 2s infinite;
+                    }
+
+                    @keyframes shimmer {
+                        0% {
+                            transform: translateX(-100%);
+                        }
+                        100% {
+                            transform: translateX(100%);
+                        }
+                    }
+                </style>
+
+                <script>
+                    // Animate skill bars when they come into view
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const skillBars = document.querySelectorAll('.skill-progress-bar');
+
+                        function animateSkillBars() {
+                            skillBars.forEach(bar => {
+                                const progress = bar.getAttribute('data-progress');
+                                bar.style.width = progress + '%';
+                            });
+                        }
+
+                        // Use Intersection Observer to trigger animation when in view
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    setTimeout(animateSkillBars, 300);
+                                    observer.unobserve(entry.target);
+                                }
+                            });
+                        }, { threshold: 0.2 });
+
+                        // Observe the skills section
+                        const skillsSection = document.querySelector('.skills');
+                        if (skillsSection) {
+                            observer.observe(skillsSection);
+                        }
+                    });
+                </script>
             </div>
         </div>
     </section>
@@ -668,79 +1042,774 @@
     <!-- Education Section -->
     <section class="education" id="education">
         <div class="max-width">
-            <h2 class="title">Education</h2>
-            <div class="education-content">
-                <div class="card">
-                    <div class="box">
-                        <i class="fas fa-graduation-cap"></i>
-                        <div class="text">B-Tect in IT</div>
-                        <p>PCCOE<br>2027</p>
+            <h2 class="title" data-aos="fade-up">Education</h2>
+
+            <div class="education-timeline" data-aos="fade-up">
+                <div class="timeline-container">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2023 - 2027</div>
+                            <h3>B-Tech in Information Technology</h3>
+                            <h4>Pimpri Chinchwad College of Engineering (PCCOE)</h4>
+                            <p>Currently pursuing a Bachelor's degree in Information Technology with a focus on web development, data science, and software engineering.</p>
+                            <div class="timeline-courses">
+                                <span>Data Structures</span>
+                                <span>Web Development</span>
+                                <span>Database Systems</span>
+                                <span>Machine Learning</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div class="timeline-content right">
+                            <div class="timeline-date">2021 - 2023</div>
+                            <h3>Higher Secondary Education</h3>
+                            <h4>Junior College</h4>
+                            <p>Completed higher secondary education with a focus on science and mathematics, laying the foundation for further studies in technology.</p>
+                            <div class="timeline-courses">
+                                <span>Physics</span>
+                                <span>Mathematics</span>
+                                <span>Computer Science</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Until 2021</div>
+                            <h3>Secondary Education</h3>
+                            <h4>High School</h4>
+                            <p>Completed secondary education with distinction, developing a strong interest in technology and programming.</p>
+                            <div class="timeline-courses">
+                                <span>Science</span>
+                                <span>Mathematics</span>
+                                <span>Computer Basics</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <style>
+        /* Modern Education Timeline */
+        .education-timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+        .timeline-container {
+            position: relative;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(180deg, #4776E6, #8E54E9);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(71, 118, 230, 0.5);
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            right: -25px;
+            background: linear-gradient(135deg, #4776E6, #8E54E9);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 0 15px rgba(71, 118, 230, 0.5);
+        }
+
+        .timeline-item:nth-child(even) .timeline-icon {
+            left: -25px;
+        }
+
+        .timeline-content {
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+            border-left: 4px solid #4776E6;
+        }
+
+        .timeline-content.right {
+            border-left: none;
+            border-right: 4px solid #8E54E9;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(135deg, #4776E6, #8E54E9);
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(71, 118, 230, 0.3);
+        }
+
+        .timeline-content h3 {
+            margin: 0 0 10px 0;
+            font-size: 22px;
+            color: #333;
+        }
+
+        .timeline-content h4 {
+            margin: 0 0 15px 0;
+            font-size: 16px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .timeline-content p {
+            margin: 0 0 15px 0;
+            line-height: 1.6;
+        }
+
+        .timeline-courses {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .timeline-courses span {
+            padding: 5px 12px;
+            background: rgba(71, 118, 230, 0.1);
+            border-radius: 15px;
+            font-size: 13px;
+            color: #4776E6;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-courses span:hover {
+            background: rgba(71, 118, 230, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Timeline */
+        @media screen and (max-width: 768px) {
+            .timeline-container::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-icon {
+                left: 6px;
+                right: auto;
+            }
+
+            .timeline-item:nth-child(even) .timeline-icon {
+                left: 6px;
+            }
+
+            .timeline-content.right {
+                border-right: none;
+                border-left: 4px solid #8E54E9;
+            }
+        }
+    </style>
+
   
    
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="max-width">
-            <h2 class="title">Contact Me</h2>
+            <h2 class="title" data-aos="fade-up">Contact Me</h2>
+
+            <div class="contact-cards" data-aos="fade-up">
+                <div class="contact-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="contact-card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>tp9517276@gmail.com</p>
+                    <a href="mailto:tp9517276@gmail.com" class="contact-link">Send Email</a>
+                </div>
+
+                <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="contact-card-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Location</h3>
+                    <p>Maharashtra, India</p>
+                    <a href="https://maps.google.com" target="_blank" class="contact-link">View on Map</a>
+                </div>
+
+                <div class="contact-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="contact-card-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with me</p>
+                    <a href="https://www.linkedin.com/in/tushar-pawar-97a563292/" target="_blank" class="contact-link">View Profile</a>
+                </div>
+            </div>
+
             <div class="contact-content">
-                <div class="column left">
+                <div class="column left" data-aos="fade-right">
                     <div class="text">Get in Touch</div>
-                    <p>Feel free to reach out to me for any questions or opportunities!</p>
-                    <div class="icons">
-                        <div class="row">
-                            <i class="fas fa-user"></i>
-                            <div class="info">
-                                <div class="head">Name</div>
-                                <div class="sub-title">Tushar Pawar</div>
-                            </div>
+                    <p>Feel free to reach out to me for any questions, project inquiries, or collaboration opportunities. I'm always open to discussing new ideas and challenges!</p>
+
+                    <div class="social-icons-container">
+                        <h3>Find Me On</h3>
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/in/tushar-pawar-97a563292/" target="_blank" class="social-icon linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/Radicals123128" target="_blank" class="social-icon github">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.kaggle.com/tusharpawarfy23p128" target="_blank" class="social-icon kaggle">
+                                <i class="fab fa-kaggle"></i>
+                            </a>
+                            <a href="https://www.hackerrank.com/profile/tp9517276" target="_blank" class="social-icon hackerrank">
+                                <i class="fab fa-hackerrank"></i>
+                            </a>
+                            <a href="https://leetcode.com/u/4igcN5udp9/" target="_blank" class="social-icon leetcode">
+                                <i class="fas fa-code"></i>
+                            </a>
                         </div>
-                        <div class="row">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="info">
-                                <div class="head">Address</div>
-                                <div class="sub-title">Maharashtra, India</div>
-                            </div>
+                    </div>
+
+                    <div class="availability">
+                        <h3>Current Availability</h3>
+                        <div class="availability-status">
+                            <span class="status-indicator available"></span>
+                            <span class="status-text">Available for freelance projects</span>
                         </div>
-                        <div class="row">
-                            <i class="fas fa-envelope"></i>
-                            <div class="info">
-                                <div class="head">Email</div>
-                                <div class="sub-title">tp9517276@gmail.com</div>
-                            </div>
+                        <div class="availability-status">
+                            <span class="status-indicator available"></span>
+                            <span class="status-text">Open to job opportunities</span>
+                        </div>
+                        <div class="availability-status">
+                            <span class="status-indicator limited"></span>
+                            <span class="status-text">Limited availability for mentoring</span>
                         </div>
                     </div>
                 </div>
-                <div class="column right">
-                    <div class="text">Message me</div>
-                    <form id="contact-form">
-                        <div class="fields">
-                            <div class="field name">
-                                <input type="text" id="name" name="name" placeholder="Name" required>
+
+                <div class="column right" data-aos="fade-left">
+                    <div class="text">Send Me a Message</div>
+                    <form id="contact-form" class="modern-form">
+                        <div class="form-group">
+                            <div class="input-container">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="name" name="name" required>
+                                <label for="name">Your Name</label>
+                                <span class="focus-border"></span>
                             </div>
-                            <div class="field email">
-                                <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-container">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" required>
+                                <label for="email">Your Email</label>
+                                <span class="focus-border"></span>
                             </div>
                         </div>
-                        <div class="field">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+                        <div class="form-group">
+                            <div class="input-container">
+                                <i class="fas fa-tag"></i>
+                                <input type="text" id="subject" name="subject" required>
+                                <label for="subject">Subject</label>
+                                <span class="focus-border"></span>
+                            </div>
                         </div>
-                        <div class="field textarea">
-                            <textarea id="message" name="message" cols="30" rows="10" placeholder="Message.." required></textarea>
+
+                        <div class="form-group">
+                            <div class="input-container textarea">
+                                <i class="fas fa-comment-alt"></i>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <label for="message">Your Message</label>
+                                <span class="focus-border"></span>
+                            </div>
                         </div>
-                        <div class="button-area">
-                            <button type="submit" id="submit-btn">Send message</button>
-                            <div class="alert"></div>
+
+                        <div class="button-container">
+                            <button type="submit" id="submit-btn" class="submit-btn">
+                                <span class="btn-text">Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
                         </div>
+
+                        <div class="alert"></div>
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
+    <style>
+        /* Modern Contact Section Styles */
+
+        /* Contact Cards */
+        .contact-cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            gap: 20px;
+        }
+
+        .contact-card {
+            flex: 1;
+            min-width: 250px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(71, 118, 230, 0.1), rgba(142, 84, 233, 0.1));
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-card:hover::before {
+            opacity: 1;
+            background: linear-gradient(135deg, rgba(71, 118, 230, 0.2), rgba(142, 84, 233, 0.2));
+        }
+
+        .contact-card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #4776E6, #8E54E9);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 10px 20px rgba(71, 118, 230, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover .contact-card-icon {
+            transform: rotateY(360deg);
+        }
+
+        .contact-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .contact-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-link {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #4776E6, #8E54E9);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(71, 118, 230, 0.3);
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(71, 118, 230, 0.4);
+        }
+
+        /* Social Icons */
+        .social-icons-container {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .social-icons-container h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+            z-index: 1;
+        }
+
+        .social-icon i {
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-icon.linkedin {
+            background: #0077B5;
+        }
+
+        .social-icon.github {
+            background: #333;
+        }
+
+        .social-icon.kaggle {
+            background: #20BEFF;
+        }
+
+        .social-icon.hackerrank {
+            background: #2EC866;
+        }
+
+        .social-icon.leetcode {
+            background: #F89F1B;
+        }
+
+        /* Availability Status */
+        .availability {
+            margin-top: 30px;
+        }
+
+        .availability h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .availability-status {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .status-indicator.available {
+            background: #2EC866;
+            box-shadow: 0 0 10px rgba(46, 200, 102, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        .status-indicator.limited {
+            background: #F89F1B;
+            box-shadow: 0 0 10px rgba(248, 159, 27, 0.5);
+        }
+
+        .status-indicator.unavailable {
+            background: #E74C3C;
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+        }
+
+        .status-text {
+            font-size: 15px;
+            color: #666;
+        }
+
+        /* Modern Form Styles */
+        .modern-form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .input-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-container i {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: #999;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .input-container input,
+        .input-container textarea {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #333;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-container label {
+            position: absolute;
+            top: 15px;
+            left: 45px;
+            color: #999;
+            font-size: 16px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-container input:focus,
+        .input-container textarea:focus,
+        .input-container input:valid,
+        .input-container textarea:valid {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 5px rgba(71, 118, 230, 0.3);
+        }
+
+        .input-container input:focus ~ label,
+        .input-container textarea:focus ~ label,
+        .input-container input:valid ~ label,
+        .input-container textarea:valid ~ label {
+            top: -10px;
+            left: 15px;
+            font-size: 12px;
+            color: #4776E6;
+            background: white;
+            padding: 0 5px;
+        }
+
+        .input-container input:focus ~ i,
+        .input-container textarea:focus ~ i,
+        .input-container input:valid ~ i,
+        .input-container textarea:valid ~ i {
+            color: #4776E6;
+        }
+
+        .input-container .focus-border {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #4776E6, #8E54E9);
+            transition: all 0.3s ease;
+        }
+
+        .input-container input:focus ~ .focus-border,
+        .input-container textarea:focus ~ .focus-border,
+        .input-container input:valid ~ .focus-border,
+        .input-container textarea:valid ~ .focus-border {
+            width: 100%;
+        }
+
+        .input-container.textarea {
+            height: auto;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .submit-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #4776E6, #8E54E9);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(71, 118, 230, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(71, 118, 230, 0.4);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn i {
+            margin-left: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        .alert {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+
+        .alert.success {
+            background: rgba(46, 200, 102, 0.2);
+            color: #2EC866;
+            border: 1px solid #2EC866;
+            display: block;
+        }
+
+        .alert.error {
+            background: rgba(231, 76, 60, 0.2);
+            color: #E74C3C;
+            border: 1px solid #E74C3C;
+            display: block;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            .contact-cards {
+                flex-direction: column;
+            }
+
+            .contact-card {
+                margin-bottom: 20px;
+            }
+
+            .contact-content {
+                flex-direction: column;
+            }
+
+            .contact .column {
+                width: 100%;
+            }
+
+            .contact .column.left {
+                margin-bottom: 40px;
+            }
+        }
+    </style>
 
     <!-- Footer -->
     <footer>
@@ -774,10 +1843,394 @@
         <i class="fas fa-moon"></i>
     </div>
 
-    <!-- Loading animation -->
-    <div class="loader-wrapper">
-        <div class="loader"></div>
+    <!-- Floating Navigation Menu -->
+    <div class="floating-nav">
+        <div class="floating-nav-toggle">
+            <i class="fas fa-compass"></i>
+        </div>
+        <ul class="floating-nav-menu">
+            <li><a href="#home" data-tooltip="Home"><i class="fas fa-home"></i></a></li>
+            <li><a href="#about" data-tooltip="About"><i class="fas fa-user"></i></a></li>
+            <li><a href="#projects" data-tooltip="Projects"><i class="fas fa-code"></i></a></li>
+            <li><a href="#skills" data-tooltip="Skills"><i class="fas fa-cogs"></i></a></li>
+            <li><a href="#experience" data-tooltip="Experience"><i class="fas fa-briefcase"></i></a></li>
+            <li><a href="#education" data-tooltip="Education"><i class="fas fa-graduation-cap"></i></a></li>
+            <li><a href="#contact" data-tooltip="Contact"><i class="fas fa-envelope"></i></a></li>
+        </ul>
     </div>
+
+    <!-- Basic Custom Cursor -->
+    <div id="cursor"></div>
+
+    <script>
+        // Improved cursor script directly in HTML
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursor = document.getElementById('cursor');
+
+            if (cursor) {
+                // Update cursor position for all sections
+                document.addEventListener('mousemove', function(e) {
+                    // Use transform for better performance
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+
+                // Make sure cursor is visible on all sections
+                document.querySelectorAll('section').forEach(function(section) {
+                    section.addEventListener('mouseenter', function() {
+                        cursor.style.display = 'block';
+                    });
+                });
+
+                // Handle cursor visibility when mouse leaves/enters window
+                document.addEventListener('mouseleave', function() {
+                    cursor.style.display = 'none';
+                });
+
+                document.addEventListener('mouseenter', function() {
+                    cursor.style.display = 'block';
+                });
+            }
+        });
+    </script>
+
+    <!-- Floating Navigation Menu -->
+    <div class="floating-nav">
+        <div class="floating-nav-toggle">
+            <i class="fas fa-compass"></i>
+        </div>
+        <ul class="floating-nav-menu">
+            <li><a href="#home" data-tooltip="Home"><i class="fas fa-home"></i></a></li>
+            <li><a href="#about" data-tooltip="About"><i class="fas fa-user"></i></a></li>
+            <li><a href="#projects" data-tooltip="Projects"><i class="fas fa-code"></i></a></li>
+            <li><a href="#skills" data-tooltip="Skills"><i class="fas fa-cogs"></i></a></li>
+            <li><a href="#experience" data-tooltip="Experience"><i class="fas fa-briefcase"></i></a></li>
+            <li><a href="#education" data-tooltip="Education"><i class="fas fa-graduation-cap"></i></a></li>
+            <li><a href="#contact" data-tooltip="Contact"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+    </div>
+
+    <style>
+        /* Floating Navigation Menu */
+        .floating-nav {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .floating-nav.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .floating-nav-toggle {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4776E6, #8E54E9);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .floating-nav-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .floating-nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .floating-nav-menu li a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            color: #333;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .floating-nav-menu li a:hover {
+            background: linear-gradient(135deg, #4776E6, #8E54E9);
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        .floating-nav-menu li a::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            right: 50px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .floating-nav-menu li a:hover::before {
+            opacity: 1;
+            visibility: visible;
+            right: 55px;
+        }
+    </style>
+
+    <script>
+        // Floating Navigation Menu
+        document.addEventListener('DOMContentLoaded', function() {
+            const floatingNav = document.querySelector('.floating-nav');
+            const floatingNavToggle = document.querySelector('.floating-nav-toggle');
+            const navLinks = document.querySelectorAll('.floating-nav-menu li a');
+
+            // Show floating nav after scrolling down
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    floatingNav.classList.add('active');
+                } else {
+                    floatingNav.classList.remove('active');
+                }
+            });
+
+            // Toggle floating nav menu
+            floatingNavToggle.addEventListener('click', function() {
+                floatingNav.classList.toggle('expanded');
+            });
+
+            // Smooth scroll for nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Highlight active section in floating nav
+            window.addEventListener('scroll', function() {
+                let current = '';
+                const sections = document.querySelectorAll('section');
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= (sectionTop - 300)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Loading animation -->
+    <div class="preloader">
+        <div class="preloader-container">
+            <div class="preloader-logo">TP</div>
+            <div class="preloader-text">Loading Portfolio</div>
+            <div class="preloader-bar">
+                <div class="preloader-progress"></div>
+            </div>
+            <div class="preloader-counter">0%</div>
+        </div>
+    </div>
+
+    <style>
+        /* Modern Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-container {
+            text-align: center;
+            max-width: 500px;
+            width: 80%;
+        }
+
+        .preloader-logo {
+            font-size: 60px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(135deg, #4776E6, #8E54E9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 2s infinite;
+        }
+
+        .preloader-text {
+            color: #ccc;
+            font-size: 18px;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .preloader-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .preloader-progress {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #4776E6, #8E54E9);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .preloader-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        .preloader-counter {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+
+    <script>
+        // Preloader Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const preloader = document.querySelector('.preloader');
+            const progress = document.querySelector('.preloader-progress');
+            const counter = document.querySelector('.preloader-counter');
+
+            let loadingProgress = 0;
+            const totalAssets = document.images.length + 5; // Images + CSS + JS files
+            let loadedAssets = 0;
+
+            // Function to update progress
+            function updateProgress() {
+                loadedAssets++;
+                const newProgress = Math.min(Math.floor((loadedAssets / totalAssets) * 100), 100);
+
+                // Animate progress from current to new value
+                const interval = setInterval(() => {
+                    if (loadingProgress < newProgress) {
+                        loadingProgress++;
+                        progress.style.width = loadingProgress + '%';
+                        counter.textContent = loadingProgress + '%';
+                    } else {
+                        clearInterval(interval);
+                    }
+
+                    // When loading reaches 100%, hide preloader
+                    if (loadingProgress >= 100) {
+                        setTimeout(() => {
+                            preloader.classList.add('fade-out');
+                            document.body.style.overflow = 'visible';
+                        }, 500);
+                    }
+                }, 20);
+            }
+
+            // Track image loading
+            for (let i = 0; i < document.images.length; i++) {
+                const img = new Image();
+                img.onload = updateProgress;
+                img.onerror = updateProgress; // Count errors as loaded to avoid hanging
+                img.src = document.images[i].src;
+            }
+
+            // Simulate loading of CSS and JS files
+            for (let i = 0; i < 5; i++) {
+                setTimeout(updateProgress, 500 * i);
+            }
+
+            // Ensure preloader hides even if assets don't load properly
+            setTimeout(() => {
+                loadingProgress = 100;
+                progress.style.width = '100%';
+                counter.textContent = '100%';
+
+                setTimeout(() => {
+                    preloader.classList.add('fade-out');
+                    document.body.style.overflow = 'visible';
+                }, 500);
+            }, 5000);
+        });
+    </script>
+
+    <!-- Basic custom cursor is now implemented -->
 
     <!-- Initialize AOS -->
     <script>
@@ -789,6 +2242,112 @@
             mirror: true
         });
     </script>
+
+    <!-- Custom Cursor Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursorOuter = document.querySelector('.custom-cursor-outer');
+            const cursorInner = document.querySelector('.custom-cursor-inner');
+
+            // Move cursor with mouse
+            document.addEventListener('mousemove', function(e) {
+                cursorOuter.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+                cursorInner.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            });
+
+            // Add hover effect for links and buttons
+            const links = document.querySelectorAll('a, button, .filter-btn, .skill-item, .social-icon');
+            links.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    cursorOuter.classList.add('hover');
+                    cursorInner.classList.add('hover');
+                });
+
+                link.addEventListener('mouseleave', function() {
+                    cursorOuter.classList.remove('hover');
+                    cursorInner.classList.remove('hover');
+                });
+            });
+
+            // Add click effect
+            document.addEventListener('mousedown', function() {
+                cursorOuter.classList.add('click');
+                cursorInner.classList.add('click');
+            });
+
+            document.addEventListener('mouseup', function() {
+                cursorOuter.classList.remove('click');
+                cursorInner.classList.remove('click');
+            });
+        });
+    </script>
+
+    <style>
+        /* Custom Cursor Styles */
+        .custom-cursor-outer,
+        .custom-cursor-inner {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(0, 0);
+            transition: transform 0.1s ease;
+        }
+
+        .custom-cursor-outer {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(71, 118, 230, 0.5);
+            transition: all 0.2s ease-out;
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor-inner {
+            width: 8px;
+            height: 8px;
+            background-color: #4776E6;
+            transition: all 0.1s ease-out;
+            box-shadow: 0 0 10px rgba(71, 118, 230, 0.5);
+        }
+
+        .custom-cursor-outer.hover {
+            width: 60px;
+            height: 60px;
+            border-color: rgba(142, 84, 233, 0.5);
+            background-color: rgba(142, 84, 233, 0.1);
+        }
+
+        .custom-cursor-inner.hover {
+            background-color: #8E54E9;
+            transform: scale(1.5);
+        }
+
+        .custom-cursor-outer.click {
+            transform: scale(0.8);
+            background-color: rgba(142, 84, 233, 0.2);
+        }
+
+        .custom-cursor-inner.click {
+            transform: scale(0.6);
+        }
+
+        /* Hide default cursor when custom cursor is active */
+        body {
+            cursor: none;
+        }
+
+        /* But show default cursor on mobile devices */
+        @media (max-width: 768px) {
+            .custom-cursor-outer,
+            .custom-cursor-inner {
+                display: none;
+            }
+
+            body {
+                cursor: auto;
+            }
+        }
+    </style>
 
     <!-- Initialize EmailJS -->
     <script>
@@ -816,6 +2375,24 @@
 
     <!-- Main Script -->
     <script src="script.js"></script>
+
+    <!-- Final cursor initialization -->
+    <script>
+        // Ensure cursor is properly initialized
+        window.addEventListener('load', function() {
+            const cursor = document.getElementById('cursor');
+            if (cursor) {
+                // Force cursor to be visible
+                cursor.style.display = 'block';
+
+                // Force cursor to follow mouse on all sections
+                document.addEventListener('mousemove', function(e) {
+                    cursor.style.left = e.clientX + 'px';
+                    cursor.style.top = e.clientY + 'px';
+                });
+            }
+        });
+    </script>
 
     <!-- Project Filtering Script -->
     <script>
@@ -867,17 +2444,53 @@
                 });
             });
 
-            // Add hover effects to project cards
+            // Add 3D hover effects to project cards
             projectCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
+                card.addEventListener('mousemove', function(e) {
+                    const cardRect = this.getBoundingClientRect();
+                    const cardCenterX = cardRect.left + cardRect.width / 2;
+                    const cardCenterY = cardRect.top + cardRect.height / 2;
+
+                    // Calculate mouse position relative to card center
+                    const mouseX = e.clientX - cardCenterX;
+                    const mouseY = e.clientY - cardCenterY;
+
+                    // Calculate rotation (max 10 degrees)
+                    const rotateY = mouseX * 0.01;
+                    const rotateX = -mouseY * 0.01;
+
+                    // Apply transform
+                    this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+
+                    // Add shine effect
+                    const shine = this.querySelector('.box');
+                    if (shine) {
+                        const percentX = (e.clientX - cardRect.left) / cardRect.width * 100;
+                        const percentY = (e.clientY - cardRect.top) / cardRect.height * 100;
+                        shine.style.background = `radial-gradient(circle at ${percentX}% ${percentY}%, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%)`;
+                    }
+
+                    // Animate tech badges
                     this.querySelectorAll('.tech-badge').forEach((badge, index) => {
                         badge.style.transitionDelay = (index * 0.05) + 's';
+                        badge.style.transform = 'translateY(-5px)';
                     });
                 });
 
                 card.addEventListener('mouseleave', function() {
+                    // Reset transform
+                    this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+
+                    // Reset shine
+                    const shine = this.querySelector('.box');
+                    if (shine) {
+                        shine.style.background = '';
+                    }
+
+                    // Reset tech badges
                     this.querySelectorAll('.tech-badge').forEach(badge => {
                         badge.style.transitionDelay = '0s';
+                        badge.style.transform = 'translateY(0)';
                     });
                 });
             });
@@ -890,7 +2503,71 @@
                     this.src = 'https://via.placeholder.com/350x200?text=Project+Screenshot';
                 });
             });
+
+            // Add animation to featured badge
+            const featuredBadges = document.querySelectorAll('.featured-badge');
+            featuredBadges.forEach(badge => {
+                badge.innerHTML = '<span>Featured</span>';
+                badge.classList.add('animated-badge');
+            });
         });
     </script>
+
+    <style>
+        /* 3D Card Effect Styles */
+        .projects .card {
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: transparent;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .projects .card .box {
+            transition: all 0.5s ease;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .projects .card:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-badge {
+            transition: all 0.3s ease;
+            transform-origin: bottom;
+        }
+
+        /* Animated Featured Badge */
+        .animated-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #ff7b00, #ff006a);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(255, 0, 106, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(255, 0, 106, 0.3);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 5px 25px rgba(255, 0, 106, 0.5);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(255, 0, 106, 0.3);
+            }
+        }
+    </style>
 </body>
 </html>
