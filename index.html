@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="enhanced-projects.css">
     <link rel="stylesheet" href="enhanced-experience.css">
     <link rel="stylesheet" href="certificate-timeline.css">
+    <link rel="stylesheet" href="achievements.css">
+    <link rel="stylesheet" href="section-spacing.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -108,6 +110,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
+                <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -121,7 +124,7 @@
                 <div class="text-1">Hello, my name is</div>
                 <div class="text-2">Tushar Pawar</div>
                 <div class="text-3">And I'm a <span class="typing"></span></div>
-                <div class="text-4">Frontend Developer | Coder | Tech Enthusiast</div>
+                <div class="text-4">Data Analyst</Data> | Coder | Tech Enthusiast</div>
                 <a href="#contact" class="glow-button">Hire me</a>
 
                 <script>
@@ -362,12 +365,12 @@
             <h2 class="title">About Me</h2>
             <div class="about-content">
                 <div class="column left">
-                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQEG6i4zJR9sbQ/profile-displayphoto-shrink_400_400/B4DZSn.9ptH0Ak-/0/1737985089006?e=1744848000&v=beta&t=Eo5bzVoK0a52th_18C_39ScPXILRYq4BH-dJpzlNACs    " alt="Profile Image">
+                    <img src="https://media.licdn.com/dms/image/v2/D4D03AQEG6i4zJR9sbQ/profile-displayphoto-shrink_400_400/B4DZSn.9ptH0Ak-/0/1737985089006?e=1752710400&v=beta&t=L8uViXoa89F32Hv89IzC_EHYIbaDnLGTOWf1F2s5vgY" alt="Profile Image">
                 </div>
                 <div class="column right">
                     <div class="text">I'm Tushar Pawar and I'm a <span>Frontend Developer</span></div>
                     <p>I am a Second Year IT Student at PCCOE, passionate about web development and creating user-friendly interfaces. I specialize in frontend technologies and am constantly learning new skills to enhance my development capabilities. My goal is to build innovative and efficient web solutions that make a positive impact.</p>
-                    <a href="resume.pdf" class="download-btn" download>Download Resume</a>
+                    <a href="Tushar Pawar Resume.pdf" class="download-btn" download>Download Resume</a>
                 </div>
             </div>
         </div>
@@ -1136,7 +1139,7 @@
     </section>
 
     <!-- Education Section -->
-    <section class="education" id="education">
+    <section class="education clearfix" id="education" style="margin-bottom: 100px; position: relative; z-index: 1;">
         <div class="max-width">
             <h2 class="title" data-aos="fade-up">Education</h2>
 
@@ -1367,8 +1370,28 @@
         }
     </style>
 
-  
-   
+    <!-- Clear separation between sections -->
+    <div style="height: 50px; clear: both;"></div>
+
+    <!-- Achievements Section -->
+    <section class="achievements clearfix" id="achievements">
+        <div class="max-width">
+            <h2 class="title" data-aos="fade-up">Achievements</h2>
+            
+            <div class="achievements-content" data-aos="fade-up">
+                <div class="achievement-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="achievement-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="achievement-details">
+                        <h3>FFE (Foundation for Excellence) Scholarship Recipient</h3>
+                        <p>Awarded a prestigious national-level scholarship based on academic excellence, securing 98.38 percentile in the MHT-CET entrance exam. Recognized for outstanding merit among engineering aspirants in India.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="max-width">
